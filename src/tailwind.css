@@ -17,4 +17,5 @@
 
   /* カスタムカラーの設定 */
   --color-app-primary: oklch(0.7595 0.0805 174.05);
+  --color-app-secondary: oklch(0.9559 0.0117 196.96);
 }
