@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import UserProfile from '@/page/article-list/component/UserProfile.vue'
+import UserProfile from "@/page/article-list/component/UserProfile.vue"
 </script>
 
 <template>

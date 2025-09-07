@@ -15,7 +15,13 @@ export default defineConfigWithVueTs(
     files: ['**/*.{ts,mts,tsx,vue}'],
   },
 
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
+  globalIgnores([
+    // prettierで改行させるためのコメント
+    '**/dist/**',
+    '**/dist-ssr/**',
+    '**/coverage/**',
+    '/src/api/openapi-generate/**',
+  ]),
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
@@ -30,6 +36,22 @@ export default defineConfigWithVueTs(
     files: ['**/*.vue'],
     rules: {
       'vue/multi-word-component-names': 'off', // 1単語のコンポーネント名を許可
+      'vue/no-unused-vars': 'error', // 未使用変数
+      'vue/no-undef': 'error', // 未定義変数の使用
+      'vue/no-unused-components': 'error', // 未使用コンポーネント
+      'vue/require-v-for-key': 'error', // v-forでkey必須
+      'vue/no-mutating-props': 'error', // propsの変更禁止
+    },
+  },
+
+  {
+    files: ['**/*.{ts,mts,tsx,vue}'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'error', // 未使用変数
+      '@typescript-eslint/no-explicit-any': 'warn', // any型の使用を警告
+      'prefer-const': 'error', // 再代入されない変数のconst強制
+      'no-var': 'error', // varの使用禁止
+      'no-duplicate-imports': 'error', // 重複import禁止
     },
   },
 )
