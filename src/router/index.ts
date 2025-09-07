@@ -11,7 +11,12 @@ const router = createRouter({
     {
       path: '/sample',
       name: 'sample',
-      component: () => import('../page/sample/index.vue'),
+      component: () => import('../page/sample/Index.vue'),
+    },
+    {
+      path: '/fetch-sample',
+      name: 'fetch-sample',
+      component: () => import('../page/fetch-sample/Index.vue'),
     },
   ],
 })

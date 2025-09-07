@@ -14,9 +14,11 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/api.yaml -o src/api/openapi-generate/api.ts"
   },
   "dependencies": {
+    "openapi-fetch": "^0.14.0",
     "tailwind-merge": "^3.3.1",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
@@ -37,6 +39,7 @@
     "jiti": "^2.4.2",
     "jsdom": "^26.1.0",
     "npm-run-all2": "^8.0.4",
+    "openapi-typescript": "^7.9.1",
     "prettier": "3.6.2",
     "tailwindcss": "^4.1.12",
     "typescript": "~5.8.0",
