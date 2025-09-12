@@ -8,6 +8,7 @@
       <div class="ml-8">
         <div class="text-lg">kageyamountain</div>
         <div class="mt-2.25 h-25 text-sm">kageyamountain個人の技術ブログです。</div>
+
         <!-- 外部リンクセクション -->
         <div class="flex">
           <a href="https://github.com/kageyamountain" target="_blank" rel="noopener noreferrer">
