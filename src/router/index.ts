@@ -12,13 +12,13 @@ const router = createRouter({
     {
       path: "/sample",
       name: "sample",
-      component: () => import("../page/sample/Index.vue"),
+      component: () => import("../page/sample/Sample.vue"),
       meta: { title: "sample | kageyamountain.net" },
     },
     {
       path: "/fetch-sample",
       name: "fetch-sample",
-      component: () => import("../page/fetch-sample/Index.vue"),
+      component: () => import("../page/fetch-sample/FetchSample.vue"),
       meta: { title: "fetch-sample | kageyamountain.net" },
     },
   ],
