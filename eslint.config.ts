@@ -1,8 +1,8 @@
-import { globalIgnores } from 'eslint/config'
-import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
-import pluginVue from 'eslint-plugin-vue'
-import pluginVitest from '@vitest/eslint-plugin'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import { globalIgnores } from "eslint/config"
+import { defineConfigWithVueTs, vueTsConfigs } from "@vue/eslint-config-typescript"
+import pluginVue from "eslint-plugin-vue"
+import pluginVitest from "@vitest/eslint-plugin"
+import skipFormatting from "@vue/eslint-config-prettier/skip-formatting"
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
@@ -11,47 +11,47 @@ import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
 export default defineConfigWithVueTs(
   {
-    name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}'],
+    name: "app/files-to-lint",
+    files: ["**/*.{ts,mts,tsx,vue}"],
   },
 
   globalIgnores([
     // prettierで改行させるためのコメント
-    '**/dist/**',
-    '**/dist-ssr/**',
-    '**/coverage/**',
-    '/src/api/openapi-generate/**',
+    "**/dist/**",
+    "**/dist-ssr/**",
+    "**/coverage/**",
+    "/src/api/openapi-generate/**",
   ]),
 
-  pluginVue.configs['flat/essential'],
+  pluginVue.configs["flat/essential"],
   vueTsConfigs.recommended,
 
   {
     ...pluginVitest.configs.recommended,
-    files: ['src/**/__tests__/*'],
+    files: ["src/**/__tests__/*"],
   },
   skipFormatting,
 
   {
-    files: ['**/*.vue'],
+    files: ["**/*.vue"],
     rules: {
-      'vue/multi-word-component-names': 'off', // 1単語のコンポーネント名を許可
-      'vue/no-unused-vars': 'error', // 未使用変数
-      'vue/no-undef': 'error', // 未定義変数の使用
-      'vue/no-unused-components': 'error', // 未使用コンポーネント
-      'vue/require-v-for-key': 'error', // v-forでkey必須
-      'vue/no-mutating-props': 'error', // propsの変更禁止
+      "vue/multi-word-component-names": "off", // 1単語のコンポーネント名を許可
+      "vue/no-unused-vars": "error", // 未使用変数
+      "vue/no-undef": "error", // 未定義変数の使用
+      "vue/no-unused-components": "error", // 未使用コンポーネント
+      "vue/require-v-for-key": "error", // v-forでkey必須
+      "vue/no-mutating-props": "error", // propsの変更禁止
     },
   },
 
   {
-    files: ['**/*.{ts,mts,tsx,vue}'],
+    files: ["**/*.{ts,mts,tsx,vue}"],
     rules: {
-      '@typescript-eslint/no-unused-vars': 'error', // 未使用変数
-      '@typescript-eslint/no-explicit-any': 'warn', // any型の使用を警告
-      'prefer-const': 'error', // 再代入されない変数のconst強制
-      'no-var': 'error', // varの使用禁止
-      'no-duplicate-imports': 'error', // 重複import禁止
+      "@typescript-eslint/no-unused-vars": "error", // 未使用変数
+      "@typescript-eslint/no-explicit-any": "warn", // any型の使用を警告
+      "prefer-const": "error", // 再代入されない変数のconst強制
+      "no-var": "error", // varの使用禁止
+      "no-duplicate-imports": "error", // 重複import禁止
     },
   },
 )
