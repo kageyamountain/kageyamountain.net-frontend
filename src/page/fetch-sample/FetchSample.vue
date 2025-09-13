@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { apiClient } from '@/api/client.ts'
-import type { components } from '@/api/openapi-generate/api.ts'
+import { ref } from "vue"
+import { apiClient } from "@/api/client.ts"
+import type { components } from "@/api/openapi-generate/api.ts"
+import { API_PATH } from "@/share/constant"
 
 // 型定義
-type Article = components['schemas']['Article']
+type Article = components["schemas"]["Article"]
 
 // リアクティブ変数
 const articles = ref<Article[]>([])
@@ -19,21 +20,21 @@ const fetchArticles = async () => {
   try {
     const { data, response, error: apiError } = await apiClient.GET(API_PATH.ARTICLES)
 
-    const requestId = response.headers.get('X-Request-ID')
-    console.log('X-Request-ID:', requestId)
-    console.log('data:', data)
-    console.log('error:', apiError)
+    const requestId = response.headers.get("X-Request-ID")
+    console.log("X-Request-ID:", requestId)
+    console.log("data:", data)
+    console.log("error:", apiError)
 
     articles.value = data ? data.articles : []
     console.log(articles.value)
 
     if (apiError) {
-      console.log('failed')
+      console.log("failed")
     } else if (data) {
-      console.log('success')
+      console.log("success")
     }
   } catch (err) {
-    console.log('failed')
+    console.log("failed")
   } finally {
     loading.value = false
   }
