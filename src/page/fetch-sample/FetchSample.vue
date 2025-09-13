@@ -2,7 +2,6 @@
 import { ref } from "vue"
 import { apiClient } from "@/api/client.ts"
 import type { components } from "@/api/openapi-generate/api.ts"
-import { API_PATH } from "@/share/constant"
 
 // 型定義
 type Article = components["schemas"]["Article"]
@@ -17,8 +16,11 @@ const fetchArticles = async () => {
   loading.value = true
   error.value = null
 
+  const data = await apiClient.GET("/articles")
+  console.log(data)
+
   try {
-    const { data, response, error: apiError } = await apiClient.GET(API_PATH.ARTICLES)
+    const { data, response, error: apiError } = await apiClient.GET("/articles")
 
     const requestId = response.headers.get("X-Request-ID")
     console.log("X-Request-ID:", requestId)
