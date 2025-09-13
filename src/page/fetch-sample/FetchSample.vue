@@ -17,7 +17,7 @@ const fetchArticles = async () => {
   error.value = null
 
   try {
-    const { data, response, error: apiError } = await apiClient.GET('/articles')
+    const { data, response, error: apiError } = await apiClient.GET(API_PATH.ARTICLES)
 
     const requestId = response.headers.get('X-Request-ID')
     console.log('X-Request-ID:', requestId)
