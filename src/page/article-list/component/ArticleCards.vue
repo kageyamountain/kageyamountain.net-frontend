@@ -1,17 +1,36 @@
 <script setup lang="ts">
 import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
+import { useApiArticles } from "@/api/composable/useApiArticles.ts"
+import { computed, onMounted, ref } from "vue"
+
+const { isLoading, data, error, getArticles } = useApiArticles()
+
+onMounted(async () => {
+  await getArticles()
+  if (error.value) {
+    console.error("error GET /articles", error.value)
+    return
+  }
+  console.log("data GET /articles", data.value)
+})
+
+const showArticles = computed(() => {
+  return data.value?.articles && data.value.articles.length > 0
+})
 </script>
 
 <template>
   <div class="bg-app-secondary w-full">
-    <div class="container mx-auto grid grid-cols-1 items-start gap-x-5 gap-y-11.25 px-4 py-11 md:grid-cols-2 lg:grid-cols-3">
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
+    <!-- TODO 本番環境で表示パフォーマンスが気になる場合は、ローディングやスケルトン表示を検討する -->
+    <div
+      v-if="showArticles"
+      class="container mx-auto grid grid-cols-1 items-start gap-x-5 gap-y-11.25 px-4 py-11 md:grid-cols-2 lg:grid-cols-3"
+    >
+      <ArticleCard
+        v-for="article in data?.articles"
+        :key="article.id"
+        :article="article"
+      />
     </div>
   </div>
 </template>
