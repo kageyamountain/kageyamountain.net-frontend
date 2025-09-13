@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import UserProfile from "@/page/article-list/component/UserProfile.vue"
+import ArticleCards from "@/page/article-list/component/ArticleCards.vue"
 </script>
 
 <template>
   <UserProfile />
-  <div class="bg-app-secondary">Article Cards</div>
+  <ArticleCards />
 </template>
