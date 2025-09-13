@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
   <div class="h-[194px] w-full bg-white">
-    <div class="container mx-auto flex h-full items-start py-4.5">
+    <div class="container mx-auto flex h-full items-start px-4 py-4.5">
       <div class="border-app-primary h-[158px] w-[158px] overflow-hidden rounded-full border">
         <img src="/public/image/profile.png" alt="プロフィール画像" />
       </div>

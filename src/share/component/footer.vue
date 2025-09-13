@@ -1,3 +1,3 @@
 <template>
-  <header class="bg-app-primary w-full h-[70px]"></header>
+  <footer class="bg-app-primary h-[70px] w-full"></footer>
 </template>
