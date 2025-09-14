@@ -8,10 +8,9 @@ const { isLoading, data, error, getArticlesApi } = useApiArticles()
 onMounted(async () => {
   await getArticlesApi()
   if (error.value) {
-    console.error("error GET /articles", error.value)
+    // TODO 共通エラーページへ遷移させる
     return
   }
-  console.log("data GET /articles", data.value)
 })
 
 const showArticles = computed(() => {
