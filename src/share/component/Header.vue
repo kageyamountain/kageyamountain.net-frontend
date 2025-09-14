@@ -7,17 +7,18 @@
       >
         kageyamountain.net
       </router-link>
-      <div class="ml-5 sm:ml-10">
+      <div class="ml-5 sm:ml-8">
         <router-link
           to="/"
           active-class="underline underline-offset-2"
+          class="px-2 py-1 transition-colors duration-200 hover:text-blue-100"
         >
           Home
         </router-link>
         <router-link
           to="/search"
           active-class="underline underline-offset-2"
-          class="ml-3 sm:ml-6"
+          class="px-2 py-1 transition-colors duration-200 hover:text-blue-100"
         >
           Search
         </router-link>
