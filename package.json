@@ -14,6 +14,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "format": "prettier --write src/",
     "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/api.yaml -o src/api/openapi-generate/api.ts"
   },
