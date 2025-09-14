@@ -3,10 +3,10 @@ import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
 import { useApiArticles } from "@/api/composable/useApiArticles.ts"
 import { computed, onMounted } from "vue"
 
-const { isLoading, data, error, getArticles } = useApiArticles()
+const { isLoading, data, error, getArticlesApi } = useApiArticles()
 
 onMounted(async () => {
-  await getArticles()
+  await getArticlesApi()
   if (error.value) {
     console.error("error GET /articles", error.value)
     return

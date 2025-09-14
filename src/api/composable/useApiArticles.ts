@@ -13,7 +13,7 @@ export function useApiArticles() {
   const data = ref<Data>()
   const error = ref<Error>()
 
-  const getArticles = async () => {
+  const getArticlesApi = async () => {
     isLoading.value = true
 
     try {
@@ -41,5 +41,5 @@ export function useApiArticles() {
     }
   }
 
-  return { isLoading, status, headers, data, error, getArticles }
+  return { isLoading, status, headers, data, error, getArticlesApi }
 }
