@@ -22,7 +22,7 @@ defineProps<{ article: Article }>()
       <p
         v-for="tag in article.tags"
         :key="tag"
-        :class="['rounded-xl px-3', getTagColor(tag)]"
+        :class="`rounded-xl px-3 ${getTagColor(tag)}`"
       >
         {{ tag }}
       </p>
