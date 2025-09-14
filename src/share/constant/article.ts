@@ -10,4 +10,4 @@ export const TAG_COLORS = {
   DynamoDB: "bg-orange-500",
 } as const
 
-export type TagColorKey = keyof typeof TAG_COLORS
+export type TAG_COLORS_KEY = keyof typeof TAG_COLORS

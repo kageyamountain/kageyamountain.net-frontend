@@ -1,7 +1,7 @@
-import { TAG_COLORS, type TagColorKey } from "@/share/constant"
+import { TAG_COLORS, type TAG_COLORS_KEY } from "@/share/constant"
 
 export function getTagColor(tag: string): string {
-  return TAG_COLORS[tag as TagColorKey] || "bg-gray-400"
+  return TAG_COLORS[tag as TAG_COLORS_KEY] || "bg-gray-400"
 }
 
 /**
