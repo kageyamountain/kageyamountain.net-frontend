@@ -8,7 +8,10 @@ defineProps<{ article: Article }>()
 </script>
 
 <template>
-  <div>
+  <router-link
+    :to="`/articles/${article.id}`"
+    class="transition-transform duration-200 hover:scale-105"
+  >
     <div class="bg-app-primary h-[130px] rounded-t-3xl px-3.75 text-white">
       <div class="pt-3 text-sm">
         {{ convertToLocalDate(article.published_at) }}
@@ -27,5 +30,5 @@ defineProps<{ article: Article }>()
         {{ tag }}
       </p>
     </div>
-  </div>
+  </router-link>
 </template>
