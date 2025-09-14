@@ -5,6 +5,12 @@ const router = createRouter({
   routes: [
     {
       path: "/",
+      name: "home",
+      component: () => import("../page/article-list/ArticleList.vue"),
+      meta: { title: "記事一覧 | kageyamountain.net" },
+    },
+    {
+      path: "/articles",
       name: "article-list",
       component: () => import("../page/article-list/ArticleList.vue"),
       meta: { title: "記事一覧 | kageyamountain.net" },
