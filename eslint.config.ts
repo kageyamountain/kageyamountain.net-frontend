@@ -37,7 +37,6 @@ export default defineConfigWithVueTs(
     rules: {
       "vue/multi-word-component-names": "off", // 1単語のコンポーネント名を許可
       "vue/no-unused-vars": "error", // 未使用変数
-      "vue/no-undef": "error", // 未定義変数の使用
       "vue/no-unused-components": "error", // 未使用コンポーネント
       "vue/require-v-for-key": "error", // v-forでkey必須
       "vue/no-mutating-props": "error", // propsの変更禁止

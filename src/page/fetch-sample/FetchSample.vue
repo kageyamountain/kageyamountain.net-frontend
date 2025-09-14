@@ -36,7 +36,7 @@ const fetchArticles = async () => {
       console.log("success")
     }
   } catch (err) {
-    console.log("failed")
+    console.error("Failed:", err)
   } finally {
     loading.value = false
   }
