@@ -1,0 +1,35 @@
+version: 2
+updates:
+  # npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 20
+    allow:
+      - dependency-type: "all"
+    versioning-strategy: "increase"
+    reviewers:
+      - "kageyamountain"
+    assignees:
+      - "kageyamountain"
+    labels:
+      - "dependabot"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      time: "20:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 20
+    reviewers:
+      - "kageyamountain"
+    assignees:
+      - "kageyamountain"
+    labels:
+      - "dependabot"

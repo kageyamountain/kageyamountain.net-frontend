@@ -1,12 +1,17 @@
 <script setup lang="ts">
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView } from "vue-router"
+import Header from "@/share/component/Header.vue"
+import Footer from "@/share/component/Footer.vue"
 </script>
 
 <template>
-  <nav>
-    <RouterLink to="/sample">Sample</RouterLink>
-  </nav>
-  <RouterView />
+  <div class="flex min-h-screen flex-col">
+    <Header />
+    <main class="bg-app-secondary flex-1">
+      <RouterView />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <style scoped></style>
