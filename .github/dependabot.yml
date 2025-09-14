@@ -17,7 +17,7 @@ updates:
     assignees:
       - "kageyamountain"
     labels:
-      - "dependabot"
+      - "dependencies"
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
@@ -32,4 +32,4 @@ updates:
     assignees:
       - "kageyamountain"
     labels:
-      - "dependabot"
+      - "dependencies"
