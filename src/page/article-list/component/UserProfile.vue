@@ -4,7 +4,7 @@
     <div class="container mx-auto flex h-full items-start px-4 py-4.5">
       <div class="border-app-primary h-[158px] w-[158px] overflow-hidden rounded-full border">
         <img
-          src="/public/image/profile.png"
+          src="/image/profile.png"
           alt="プロフィール画像"
         />
       </div>
