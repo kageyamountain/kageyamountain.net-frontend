@@ -16,24 +16,29 @@ export function useApiArticles() {
   const getArticles = async () => {
     isLoading.value = true
 
-    // APIコール
-    const {
-      response: newResponse,
-      data: newData,
-      error: newError,
-    } = await apiClient.GET("/articles", {
-      signal: AbortSignal.timeout(Number(import.meta.env.VITE_API_TIMEOUT_MILLI_SECONDS)),
-    })
+    try {
+      // APIコール
+      const {
+        response: newResponse,
+        data: newData,
+        error: newError,
+      } = await apiClient.GET("/articles", {
+        signal: AbortSignal.timeout(Number(import.meta.env.VITE_API_TIMEOUT_MILLI_SECONDS)),
+      })
 
-    // レスポンス設定
-    status.value = newResponse.status
-    headers.value = {
-      "X-Request-ID": newResponse.headers.get("X-Request-ID") || "",
+      // レスポンス設定
+      status.value = newResponse.status
+      headers.value = {
+        "X-Request-ID": newResponse.headers.get("X-Request-ID") || "",
+      }
+      data.value = newData
+      error.value = newError
+    } catch (exception) {
+      console.error("failed to GET /articles", exception)
+      // TODO 共通エラーページへ遷移させる
+    } finally {
+      isLoading.value = false
     }
-    data.value = newData
-    error.value = newError
-
-    isLoading.value = false
   }
 
   return { isLoading, status, headers, data, error, getArticles }
