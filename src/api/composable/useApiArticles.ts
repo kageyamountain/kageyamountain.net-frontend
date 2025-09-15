@@ -1,6 +1,9 @@
-import { ref } from "vue"
 import type { paths } from "@/api/openapi-generate/api.ts"
+
+import { ref } from "vue"
+
 import { apiClient } from "@/api/client.ts"
+import { API_RESPONSE_ERRORS } from "@/api/constant/error.ts"
 
 type ApiHeaders = paths["/articles"]["get"]["responses"]["200"]["headers"] | paths["/articles"]["get"]["responses"]["500"]["headers"]
 type Data = paths["/articles"]["get"]["responses"]["200"]["content"]["application/json"]
@@ -35,7 +38,7 @@ export function useApiArticles() {
       error.value = newError
     } catch (exception) {
       console.error("failed to GET /articles", exception)
-      // TODO 共通エラーページへ遷移させる
+      error.value = API_RESPONSE_ERRORS.INTERNAL_SERVER_ERROR
     } finally {
       isLoading.value = false
     }

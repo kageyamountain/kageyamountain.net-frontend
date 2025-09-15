@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
-import { useApiArticles } from "@/api/composable/useApiArticles.ts"
 import { computed, onMounted } from "vue"
+
+import { useApiArticles } from "@/api/composable/useApiArticles.ts"
+import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
+import router from "@/router/index.ts"
 
 const { isLoading, data, error, getArticlesApi } = useApiArticles()
 
 onMounted(async () => {
   await getArticlesApi()
   if (error.value) {
-    // TODO 共通エラーページへ遷移させる
+    await router.push({ name: "error", query: { error_code: error.value.code } })
     return
   }
 })
