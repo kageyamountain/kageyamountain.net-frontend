@@ -15,18 +15,6 @@ const router = createRouter({
       component: () => import("../page/article-list/ArticleList.vue"),
       meta: { title: "記事一覧 | kageyamountain.net" },
     },
-    {
-      path: "/sample",
-      name: "sample",
-      component: () => import("../page/sample/Sample.vue"),
-      meta: { title: "sample | kageyamountain.net" },
-    },
-    {
-      path: "/fetch-sample",
-      name: "fetch-sample",
-      component: () => import("../page/fetch-sample/FetchSample.vue"),
-      meta: { title: "fetch-sample | kageyamountain.net" },
-    },
   ],
 })
 
