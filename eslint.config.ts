@@ -93,6 +93,7 @@ export default defineConfigWithVueTs(
       ],
       "import/newline-after-import": "error", // import文の後に空行を強制
       "import/no-duplicates": "error", // 重複するimportを統合
+      "import/extensions": ["error", "always", { ignorePackages: true }], // 拡張子の記述を強制
     },
   },
 

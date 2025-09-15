@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { components } from "@/api/openapi-generate/api.ts"
-import { getTagColor, convertToLocalDate } from "@/share/util"
+import { convertToLocalDate, getTagColor } from "@/share/util/index.ts"
 
 type Article = components["schemas"]["Article"]
 
