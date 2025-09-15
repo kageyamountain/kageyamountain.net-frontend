@@ -20,6 +20,7 @@ const router = createRouter({
       name: "error",
       component: () => import("../page/error/Error.vue"),
       meta: { title: "エラー | kageyamountain.net" },
+      props: true,
     },
     {
       path: "/:pathMatch(.*)*",
