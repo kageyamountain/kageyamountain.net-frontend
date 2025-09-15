@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ErrorCode } from "@/share/type"
+import type { ErrorCode } from "@/share/type/index.ts"
 
 import { computed } from "vue"
 

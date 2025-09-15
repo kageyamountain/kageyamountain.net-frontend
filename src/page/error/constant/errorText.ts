@@ -1,4 +1,4 @@
-import type { ErrorCode } from "@/share/type"
+import type { ErrorCode } from "@/share/type/index.ts"
 
 export const ERROR_TEXTS = {
   internal_server_error: {
