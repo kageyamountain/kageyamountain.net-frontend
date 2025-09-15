@@ -1,6 +1,7 @@
-import pluginVitest from "@vitest/eslint-plugin"
 import skipFormatting from "@vue/eslint-config-prettier/skip-formatting"
 import { defineConfigWithVueTs, vueTsConfigs } from "@vue/eslint-config-typescript"
+
+import pluginVitest from "@vitest/eslint-plugin"
 import { globalIgnores } from "eslint/config"
 import pluginImport from "eslint-plugin-import"
 import pluginVue from "eslint-plugin-vue"
@@ -35,6 +36,7 @@ export default defineConfigWithVueTs(
 
   // import順序のルール設定
   {
+    files: ["**/*.{ts,mts,tsx,vue}"],
     plugins: {
       import: pluginImport,
     },
@@ -60,6 +62,17 @@ export default defineConfigWithVueTs(
             // Vue関連ライブラリ
             {
               pattern: "vue-*",
+              group: "external",
+              position: "before",
+            },
+            // 公式/関連Vueパッケージ
+            {
+              pattern: "@vue/**",
+              group: "external",
+              position: "before",
+            },
+            {
+              pattern: "@vueuse/**",
               group: "external",
               position: "before",
             },
