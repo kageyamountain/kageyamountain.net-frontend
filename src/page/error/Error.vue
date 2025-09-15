@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import type { ErrorCode } from "@/share/type"
+
 import { computed } from "vue"
 
 import { ERROR_TEXTS } from "@/page/error/constant/errorText.ts"
-import type { ErrorCode } from "@/share/type"
 
 const props = defineProps<{ errorCode?: ErrorCode }>()
 const errorCode = computed<ErrorCode>(() => props.errorCode ?? "internal_server_error")

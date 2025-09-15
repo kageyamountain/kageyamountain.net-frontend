@@ -45,6 +45,7 @@ export default defineConfigWithVueTs(
         "error",
         {
           groups: [
+            "type",
             "builtin", // Node.js組み込みモジュール (fs, path等)
             "external", // npm パッケージ (vue, axios等)
             "internal", // 内部モジュール (@/で始まるもの等)
@@ -83,7 +84,7 @@ export default defineConfigWithVueTs(
               position: "before",
             },
           ],
-          pathGroupsExcludedImportTypes: ["builtin"],
+          pathGroupsExcludedImportTypes: ["builtin", "type"],
           "newlines-between": "always", // グループ間に空行を入れる
           alphabetize: {
             order: "asc", // アルファベット順でソート
