@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue"
 
-import { useApiArticles } from "@/api/composable/useApiArticles.ts"
+import { useArticlesApi } from "@/api/composable/useArticlesApi.ts"
 import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
 import router from "@/router/index.ts"
 
-const { isLoading, data, error, getArticlesApi } = useApiArticles()
+const { isLoading, data, error, getArticlesApi } = useArticlesApi()
 
 onMounted(async () => {
   await getArticlesApi()
