@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
-import { useApiArticles } from "@/api/composable/useApiArticles.ts"
 import { computed, onMounted } from "vue"
+
+import { useApiArticles } from "@/api/composable/useApiArticles.ts"
+import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
 
 const { isLoading, data, error, getArticlesApi } = useApiArticles()
 

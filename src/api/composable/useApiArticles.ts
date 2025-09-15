@@ -1,6 +1,7 @@
 import { ref } from "vue"
-import type { paths } from "@/api/openapi-generate/api.ts"
+
 import { apiClient } from "@/api/client.ts"
+import type { paths } from "@/api/openapi-generate/api.ts"
 
 type ApiHeaders = paths["/articles"]["get"]["responses"]["200"]["headers"] | paths["/articles"]["get"]["responses"]["500"]["headers"]
 type Data = paths["/articles"]["get"]["responses"]["200"]["content"]["application/json"]
