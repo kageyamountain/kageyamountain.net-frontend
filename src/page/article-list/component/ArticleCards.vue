@@ -3,13 +3,14 @@ import { computed, onMounted } from "vue"
 
 import { useApiArticles } from "@/api/composable/useApiArticles.ts"
 import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
+import router from "@/router"
 
 const { isLoading, data, error, getArticlesApi } = useApiArticles()
 
 onMounted(async () => {
   await getArticlesApi()
   if (error.value) {
-    // TODO 共通エラーページへ遷移させる
+    await router.push({ name: "error", params: { errorCode: error.value.code } })
     return
   }
 })

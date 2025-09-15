@@ -15,6 +15,19 @@ const router = createRouter({
       component: () => import("../page/article-list/ArticleList.vue"),
       meta: { title: "記事一覧 | kageyamountain.net" },
     },
+    {
+      path: "/error",
+      name: "error",
+      component: () => import("../page/error/Error.vue"),
+      meta: { title: "エラー | kageyamountain.net" },
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import("../page/error/Error.vue"),
+      meta: { title: "エラー | kageyamountain.net" },
+      props: { errorCode: "not_found" },
+    },
   ],
 })
 

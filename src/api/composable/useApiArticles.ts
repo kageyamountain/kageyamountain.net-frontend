@@ -2,6 +2,7 @@ import { ref } from "vue"
 
 import { apiClient } from "@/api/client.ts"
 import type { paths } from "@/api/openapi-generate/api.ts"
+import router from "@/router"
 
 type ApiHeaders = paths["/articles"]["get"]["responses"]["200"]["headers"] | paths["/articles"]["get"]["responses"]["500"]["headers"]
 type Data = paths["/articles"]["get"]["responses"]["200"]["content"]["application/json"]
@@ -36,7 +37,7 @@ export function useApiArticles() {
       error.value = newError
     } catch (exception) {
       console.error("failed to GET /articles", exception)
-      // TODO 共通エラーページへ遷移させる
+      await router.push({ name: "error", params: { errorCode: "internal_server_error" } })
     } finally {
       isLoading.value = false
     }
