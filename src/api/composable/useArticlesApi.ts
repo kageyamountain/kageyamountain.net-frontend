@@ -16,6 +16,7 @@ export function useArticlesApi() {
   const data = ref<Data>()
   const error = ref<Error>()
 
+  // GET /articles
   const getArticlesApi = async () => {
     isLoading.value = true
 
