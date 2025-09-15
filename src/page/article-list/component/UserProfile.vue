@@ -1,4 +1,3 @@
-<script setup lang="ts"></script>
 <template>
   <div class="h-[194px] w-full bg-white">
     <div class="container mx-auto flex h-full items-start px-4 py-4.5">

@@ -5,15 +5,15 @@
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1024px;
-  --breakpoint-2xl: 1024px;
+  --breakpoint-xl: 1024px;  /* コンテンツ幅は最大1024pxに制限 */
+  --breakpoint-2xl: 1024px; /* コンテンツ幅は最大1024pxに制限 */
 
   /* コンテナ幅の設定 */
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
-  --container-xl: 1024px;
-  --container-2xl: 1024px;
+  --container-xl: 1024px;  /* コンテンツ幅は最大1024pxに制限 */
+  --container-2xl: 1024px; /* コンテンツ幅は最大1024pxに制限 */
 
   /* カスタムカラーの設定 */
   --color-app-primary: oklch(0.7595 0.0805 174.05);
