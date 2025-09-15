@@ -10,7 +10,7 @@ const { isLoading, data, error, getArticlesApi } = useApiArticles()
 onMounted(async () => {
   await getArticlesApi()
   if (error.value) {
-    await router.push({ name: "error", params: { errorCode: error.value.code } })
+    await router.push({ name: "error", query: { error_code: error.value.code } })
     return
   }
 })
