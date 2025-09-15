@@ -1,3 +1,5 @@
+import type { ErrorCode } from "@/share/type"
+
 export const ERROR_TEXTS = {
   internal_server_error: {
     title: "予期せぬエラーが発生しました",
@@ -7,4 +9,4 @@ export const ERROR_TEXTS = {
     title: "お探しのページは見つかりませんでした",
     message: "ページは存在しないか、移動した可能性があります。",
   },
-} as const
+} as const satisfies Record<ErrorCode, { title: string; message: string }>
