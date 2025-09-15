@@ -9,7 +9,7 @@ type ApiHeaders = paths["/articles"]["get"]["responses"]["200"]["headers"] | pat
 type Data = paths["/articles"]["get"]["responses"]["200"]["content"]["application/json"]
 type Error = paths["/articles"]["get"]["responses"]["500"]["content"]["application/json"]
 
-export function useApiArticles() {
+export function useArticlesApi() {
   const isLoading = ref(false)
   const status = ref<number>()
   const headers = ref<ApiHeaders>()
