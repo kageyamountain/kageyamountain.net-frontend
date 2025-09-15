@@ -1,4 +1,4 @@
-import { TAG_COLORS, type TAG_COLORS_KEY } from "@/share/constant"
+import {TAG_COLORS, type TAG_COLORS_KEY} from "@/share/constant/index.ts"
 
 /**
  * タグ値に対応する色を取得する
