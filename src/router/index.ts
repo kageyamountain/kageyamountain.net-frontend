@@ -20,14 +20,15 @@ const router = createRouter({
       name: "error",
       component: () => import("../page/error/Error.vue"),
       meta: { title: "エラー | kageyamountain.net" },
-      props: (route) => ({ errorCode: route.query.error_code }),
     },
     {
       path: "/:pathMatch(.*)*",
       name: "not-found",
-      component: () => import("../page/error/Error.vue"),
-      meta: { title: "エラー | kageyamountain.net" },
-      props: { errorCode: "not_found" },
+      // meta: { title: "エラー | kageyamountain.net" },
+      redirect: () => ({
+        name: "error",
+        query: { error_code: "not_found" },
+      }),
     },
   ],
 })
