@@ -5,7 +5,7 @@ import { computed } from "vue"
 
 import { marked } from "marked"
 
-import { createCustomRenderer } from "@/page/article/util/markedConfig.ts"
+import { createCustomRenderer } from "@/page/article/util/markedCustom.ts"
 import { getTagColor } from "@/share/util/index.ts"
 
 const props = defineProps<{

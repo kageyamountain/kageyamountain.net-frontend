@@ -1,4 +1,3 @@
-// src/utils/markedConfig.ts
 import highlightJS from "highlight.js"
 import { marked } from "marked"
 
