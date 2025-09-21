@@ -19,6 +19,8 @@
     "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/api.yaml -o src/api/openapi-generate/api.ts"
   },
   "dependencies": {
+    "highlight.js": "^11.11.1",
+    "marked": "^16.3.0",
     "openapi-fetch": "^0.14.0",
     "tailwind-merge": "^3.3.1",
     "vue": "^3.5.21",
