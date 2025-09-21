@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue"
+import { onMounted } from "vue"
 
 import { useArticlesApi } from "@/api/composable/useArticlesApi.ts"
 import ArticleCard from "@/page/article-list/component/ArticleCard.vue"
@@ -14,10 +14,6 @@ onMounted(async () => {
     return
   }
 })
-
-const showContents = computed(() => {
-  return data.value?.articles && data.value.articles.length > 0
-})
 </script>
 
 <template>
@@ -28,11 +24,11 @@ const showContents = computed(() => {
       class="container mx-auto"
     ></div>
     <div
-      v-else-if="showContents"
+      v-else-if="data?.articles"
       class="container mx-auto grid grid-cols-1 items-start gap-x-5 gap-y-11.25 px-4 py-11 md:grid-cols-2 lg:grid-cols-3"
     >
       <ArticleCard
-        v-for="article in data?.articles"
+        v-for="article in data.articles"
         :key="article.id"
         :article="article"
       />

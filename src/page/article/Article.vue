@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue"
+import type { ArticleID } from "@/share/type"
+
+import { onMounted } from "vue"
 
 import { useRoute } from "vue-router"
 
@@ -8,7 +10,7 @@ import ArticleBody from "@/page/article/component/ArticleBody.vue"
 import ArticleHeader from "@/page/article/component/ArticleHeader.vue"
 import router from "@/router/index.ts"
 
-const articleID = useRoute().params.article_id as string
+const articleID = useRoute().params.article_id as ArticleID
 const { isLoading, data, error, getArticleApi } = useArticleApi()
 
 onMounted(async () => {
@@ -18,10 +20,6 @@ onMounted(async () => {
     return
   }
 })
-
-const showContents = computed(() => {
-  return data.value?.article
-})
 </script>
 
 <template>
@@ -30,15 +28,15 @@ const showContents = computed(() => {
     v-if="isLoading"
     class="container mx-auto"
   />
-  <div v-else-if="showContents">
+  <div v-else-if="data?.article">
     <ArticleHeader
-      :title="data?.article.title || ''"
-      :publishedAt="data?.article.published_at || ''"
-      :updatedAt="data?.article.updated_at || ''"
+      :title="data.article.title"
+      :publishedAt="data.article.published_at"
+      :updatedAt="data.article.updated_at"
     />
     <ArticleBody
-      :tags="data?.article.tags || []"
-      :contents="data?.article.contents || ''"
+      :tags="data.article.tags"
+      :contents="data.article.contents"
     />
   </div>
 </template>

@@ -54,54 +54,66 @@ export interface components {
          */
         RequestID: string;
         ArticlesGetResponseBody: {
-            articles: components["schemas"]["Article"][];
+            articles: components["schemas"]["ArticleSummary"][];
         };
         ArticleGetResponseBody: {
-            article: components["schemas"]["Article"];
+            article: components["schemas"]["ArticleDetail"];
         };
-        Article: {
-            /**
-             * @description 記事ID（ハイフン無しのUUIDv4形式）
-             * @example 123e4567e89b12d3a456426655440000
-             */
-            id: string;
-            /**
-             * Format: date-time
-             * @description 更新日時（UTC）
-             * @example 2025-01-15T12:00:00Z
-             */
-            updated_at?: string;
-            /**
-             * Format: date-time
-             * @description 公開日時（UTC）
-             * @example 2025-01-15T12:00:00Z
-             */
-            published_at: string;
-            /**
-             * @description 記事タイトル
-             * @example Go言語入門
-             */
-            title: string;
-            /**
-             * @description 記事内容（マークダウン形式）
-             * @example # 入門チャプター
-             *     - 標準出力
-             *     - 変数と定数
-             *     - 条件分岐
-             *     - ループ
-             *
-             */
-            contents?: string;
-            /**
-             * @description タグ
-             * @example [
-             *       "Go",
-             *       "JavaScript",
-             *       "AWS"
-             *     ]
-             */
-            tags: string[];
+        ArticleSummary: {
+            id: components["schemas"]["ArticleId"];
+            published_at: components["schemas"]["ArticlePublishedAt"];
+            title: components["schemas"]["ArticleTitle"];
+            tags: components["schemas"]["ArticleTags"];
         };
+        ArticleDetail: {
+            id: components["schemas"]["ArticleId"];
+            published_at: components["schemas"]["ArticlePublishedAt"];
+            updated_at: components["schemas"]["ArticleUpdatedAt"];
+            title: components["schemas"]["ArticleTitle"];
+            contents: components["schemas"]["ArticleContents"];
+            tags: components["schemas"]["ArticleTags"];
+        };
+        /**
+         * @description 記事ID（ハイフン無しのUUIDv4形式）
+         * @example 123e4567e89b12d3a456426655440000
+         */
+        ArticleId: string;
+        /**
+         * @description 記事タイトル
+         * @example Go言語入門
+         */
+        ArticleTitle: string;
+        /**
+         * @description 記事内容（マークダウン形式）
+         * @example # 入門チャプター
+         *     - 標準出力
+         *     - 変数と定数
+         *     - 条件分岐
+         *     - ループ
+         *
+         */
+        ArticleContents: string;
+        /**
+         * Format: date-time
+         * @description 公開日時（UTC）
+         * @example 2025-01-15T12:00:00Z
+         */
+        ArticlePublishedAt: string;
+        /**
+         * Format: date-time
+         * @description 更新日時（UTC）
+         * @example 2025-01-15T12:00:00Z
+         */
+        ArticleUpdatedAt: string;
+        /**
+         * @description タグ
+         * @example [
+         *       "Go",
+         *       "JavaScript",
+         *       "AWS"
+         *     ]
+         */
+        ArticleTags: string[];
         Error: {
             code: components["schemas"]["ErrorCode"];
             /**

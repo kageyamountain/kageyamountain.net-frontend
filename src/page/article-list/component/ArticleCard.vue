@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Article } from "@/share/type/index.ts"
+import type { ArticleSummary } from "@/share/type/index.ts"
 
 import { convertToLocalDate, getTagColor } from "@/share/util/index.ts"
 
-defineProps<{ article: Article }>()
+defineProps<{ article: ArticleSummary }>()
 </script>
 
 <template>
