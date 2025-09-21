@@ -75,12 +75,12 @@ function generateHeadingId(): string {
   return `heading-${++headingCounter}`
 }
 
-// 見出し一覧を取得する
+// 見出し情報を取得する
 export function getHeadings() {
   return headings
 }
 
-// 見出し一覧をリセットする
+// 見出し情報をリセットする
 export function resetHeadings() {
   headings = []
   headingCounter = 0

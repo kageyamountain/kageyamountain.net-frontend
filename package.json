@@ -19,6 +19,7 @@
     "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/api.yaml -o src/api/openapi-generate/api.ts"
   },
   "dependencies": {
+    "dompurify": "^3.2.7",
     "highlight.js": "^11.11.1",
     "marked": "^16.3.0",
     "openapi-fetch": "^0.14.0",

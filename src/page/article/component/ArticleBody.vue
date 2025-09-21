@@ -3,6 +3,7 @@ import "highlight.js/styles/github-dark.css"
 
 import { computed } from "vue"
 
+import DOMPurify from "dompurify"
 import { marked } from "marked"
 
 import { createCustomRenderer, resetHeadings } from "@/page/article/util/markedCustom.ts"
@@ -12,9 +13,6 @@ const props = defineProps<{
   tags: string[]
   contents: string
 }>()
-
-// Markdownの見出しの状態管理変数をリセット
-resetHeadings()
 
 // Markdown変換ライブラリの設定
 marked.setOptions({
@@ -26,8 +24,9 @@ marked.setOptions({
 // MarkdownをHTMLに変換
 // スタイルは `src/tailwind.css` で設定
 const displayContents = computed(() => {
+  resetHeadings()
   if (!props.contents) return ""
-  return marked(props.contents)
+  return DOMPurify.sanitize(marked(props.contents) as string)
 })
 </script>
 
