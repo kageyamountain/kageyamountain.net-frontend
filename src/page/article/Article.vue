@@ -1,23 +1,44 @@
 <script setup lang="ts">
+import { computed, onMounted } from "vue"
+
 import { useRoute } from "vue-router"
 
+import { useArticleApi } from "@/api/composable/useArticleApi.ts"
 import ArticleBody from "@/page/article/component/ArticleBody.vue"
 import ArticleHeader from "@/page/article/component/ArticleHeader.vue"
+import router from "@/router/index.ts"
 
-const articleID = useRoute().params.id as string
+const articleID = useRoute().params.article_id as string
+const { isLoading, data, error, getArticleApi } = useArticleApi()
 
-// TODO 消す
-console.log("articleID:", articleID)
+onMounted(async () => {
+  await getArticleApi(articleID)
+  if (error.value) {
+    await router.push({ name: "error", query: { error_code: error.value.code } })
+    return
+  }
+})
+
+const showContents = computed(() => {
+  return data.value?.article
+})
 </script>
 
 <template>
-  <ArticleHeader
-    :title="'タイトル123タイトル123タイトル123タイトル123タイトル123タイトル123'"
-    :publishedAt="'2025-01-01T12:34:56Z'"
-    :updatedAt="'2025-01-01T12:34:56Z'"
+  <!-- TODO 本番環境で表示パフォーマンスが気になる場合は、ローディングやスケルトン表示を検討する -->
+  <div
+    v-if="isLoading"
+    class="container mx-auto"
   />
-  <ArticleBody
-    :tags="['Go', 'Gin', 'JavaScript', 'TypeScript', 'Vue.js', 'AWS', 'DynamoDB', 'Go', 'Gin', 'JavaScript', 'TypeScript', 'Vue.js', 'AWS', 'DynamoDB']"
-    :contents="'# 見出し1\n## 見出し1-1\n- aaa\n- bbb\n- ccc'"
-  />
+  <div v-else-if="showContents">
+    <ArticleHeader
+      :title="data?.article.title || ''"
+      :publishedAt="data?.article.published_at || ''"
+      :updatedAt="data?.article.updated_at || ''"
+    />
+    <ArticleBody
+      :tags="data?.article.tags || []"
+      :contents="data?.article.contents || ''"
+    />
+  </div>
 </template>

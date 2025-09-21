@@ -16,7 +16,7 @@ const router = createRouter({
       meta: { title: "記事一覧 | kageyamountain.net" },
     },
     {
-      path: "/articles/:id",
+      path: "/articles/:article_id",
       name: "article",
       component: () => import("../page/article/Article.vue"),
       meta: { title: "記事 | kageyamountain.net" },

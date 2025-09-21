@@ -1,12 +1,8 @@
-// src/data/dummyContents.ts
-export const dummyContents = `# Vue 3 + TypeScript で始めるモダンWebアプリ開発
-
-## はじめに
-
+export const dummyContents = `
+# はじめに
 Vue 3とTypeScriptを組み合わせることで、**型安全性**と**開発効率**を両立したWebアプリケーションを構築できます。この記事では、実際のプロジェクトで使える実践的なテクニックを紹介します。
 
-## 開発環境のセットアップ
-
+# 開発環境のセットアップ
 まず、新しいVue 3プロジェクトを作成しましょう：
 
 \`\`\`bash
@@ -16,19 +12,17 @@ npm install
 npm run dev
 \`\`\`
 
-### 必要な依存関係
-
+## 必要な依存関係
 主要なパッケージは以下の通りです：
 
 - \`vue\`: ^3.3.0
 - \`typescript\`: ^5.0.0
 - \`@vitejs/plugin-vue\`: ^4.2.0
 
-## Composition APIの基本的な使い方
-
+# Composition APIの基本的な使い方
 Vue 3の**Composition API**を使用することで、ロジックの再利用性が向上します。
 
-\`\`\`typescript
+\`\`\`typescript:src/components/Counter.vue
 // Vueコンポーネントの例
 import { ref, computed, onMounted } from 'vue'
 
@@ -50,8 +44,7 @@ const increment = (): void => {
 }
 \`\`\`
 
-## Props の型定義
-
+# Props の型定義
 TypeScriptでPropsを定義する際のベストプラクティス：
 
 \`\`\`typescript
@@ -70,12 +63,10 @@ const props = defineProps<{
 
 > **ポイント**: オプショナルなプロパティには \`?\` を使用し、配列やオブジェクトの型も明確に定義しましょう。
 
-## カスタムコンポーザブルの作成
-
+# カスタムコンポーザブルの作成
 再利用可能なロジックをコンポーザブルとして切り出す例：
 
-\`\`\`typescript
-// composables/useCounter.ts
+\`\`\`typescript:composables/useCounter.ts
 export function useCounter(initialValue = 0) {
   const count = ref(initialValue)
 
@@ -92,18 +83,15 @@ export function useCounter(initialValue = 0) {
 }
 \`\`\`
 
-## パフォーマンス最適化のTips
-
-### 1. Lazy Loading
-
+# パフォーマンス最適化のTips
+## 1. Lazy Loading
 \`\`\`javascript
 const AsyncComponent = defineAsyncComponent(() =>
   import('./components/HeavyComponent.vue')
 )
 \`\`\`
 
-### 2. メモ化の活用
-
+## 2. メモ化の活用
 \`\`\`typescript
 const expensiveValue = computed(() => {
   // 重い計算処理
@@ -111,8 +99,7 @@ const expensiveValue = computed(() => {
 })
 \`\`\`
 
-## テストの書き方
-
+# テストの書き方
 Vue Test UtilsとVitestを使用したテストの例：
 
 \`\`\`typescript
@@ -132,22 +119,14 @@ describe('MyComponent', () => {
 })
 \`\`\`
 
-## まとめ
-
+# まとめ
 Vue 3とTypeScriptの組み合わせにより、以下のメリットを享受できます：
 
 1. **型安全性の向上** - コンパイル時のエラー検出
-2. **開発体験の改善** - IDEの補完機能
-3. **保守性の向上** - 大規模アプリケーションでの管理
+1. **開発体験の改善** - IDEの補完機能
+1. **保守性の向上** - 大規模アプリケーションでの管理
 
-### 参考リンク
-
+## 参考リンク
 - [Vue.js 公式ドキュメント](https://vuejs.org/)
 - [TypeScript 公式サイト](https://www.typescriptlang.org/)
-
----
-
-**著者**: 開発太郎
-**投稿日**: 2024年12月21日
-**タグ**: Vue3, TypeScript, フロントエンド
 `
