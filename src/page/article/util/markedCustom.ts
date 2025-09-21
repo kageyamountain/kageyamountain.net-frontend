@@ -10,6 +10,8 @@ export function createCustomRenderer() {
   const renderer = new marked.Renderer()
   const slugger = new GithubSlugger()
 
+  resetHeadings()
+
   // 見出し
   renderer.heading = (token) => {
     const { text, depth } = token
