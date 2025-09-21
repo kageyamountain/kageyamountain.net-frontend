@@ -79,7 +79,7 @@
 
   /* 引用 */
   .markdown-content blockquote {
-    @apply border-l-4 border-blue-200 pl-4 py-3 bg-blue-50 text-gray-700 italic rounded-r;
+    @apply border-l-4 border-blue-200 pl-4 py-3 my-4 bg-blue-50 text-gray-700 italic rounded-r;
   }
 
   /* 区切り線 */
