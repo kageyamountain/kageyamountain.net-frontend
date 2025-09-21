@@ -15,7 +15,7 @@ onMounted(async () => {
   }
 })
 
-const showArticles = computed(() => {
+const showContents = computed(() => {
   return data.value?.articles && data.value.articles.length > 0
 })
 </script>
@@ -28,7 +28,7 @@ const showArticles = computed(() => {
       class="container mx-auto"
     ></div>
     <div
-      v-else-if="showArticles"
+      v-else-if="showContents"
       class="container mx-auto grid grid-cols-1 items-start gap-x-5 gap-y-11.25 px-4 py-11 md:grid-cols-2 lg:grid-cols-3"
     >
       <ArticleCard

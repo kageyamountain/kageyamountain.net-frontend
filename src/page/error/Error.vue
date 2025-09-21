@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import type { ErrorCode } from "@/share/type"
 
-import { computed } from "vue"
+import { useRoute } from "vue-router"
 
 import { ERROR_TEXTS } from "@/page/error/constant/errorText.ts"
 
-const props = defineProps<{ errorCode?: ErrorCode }>()
-const errorCode = computed<ErrorCode>(() => props.errorCode ?? "internal_server_error")
+const errorCode = (useRoute().query.error_code as ErrorCode) || "internal_server_error"
 </script>
 
 <template>

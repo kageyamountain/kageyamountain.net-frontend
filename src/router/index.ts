@@ -16,18 +16,24 @@ const router = createRouter({
       meta: { title: "記事一覧 | kageyamountain.net" },
     },
     {
+      path: "/articles/:article_id",
+      name: "article",
+      component: () => import("../page/article/Article.vue"),
+      meta: { title: "記事 | kageyamountain.net" },
+    },
+    {
       path: "/error",
       name: "error",
       component: () => import("../page/error/Error.vue"),
       meta: { title: "エラー | kageyamountain.net" },
-      props: (route) => ({ errorCode: route.query.error_code }),
     },
     {
       path: "/:pathMatch(.*)*",
       name: "not-found",
-      component: () => import("../page/error/Error.vue"),
-      meta: { title: "エラー | kageyamountain.net" },
-      props: { errorCode: "not_found" },
+      redirect: () => ({
+        name: "error",
+        query: { error_code: "not_found" },
+      }),
     },
   ],
 })
