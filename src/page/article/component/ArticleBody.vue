@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import "highlight.js/styles/github-dark.css"
 
+import type { ArticleContents, ArticleTags } from "@/share/type"
+
 import { computed } from "vue"
 
 import DOMPurify from "dompurify"
@@ -10,8 +12,8 @@ import { createCustomRenderer } from "@/page/article/util/markedCustom.ts"
 import { getTagColor } from "@/share/util/index.ts"
 
 const props = defineProps<{
-  tags: string[]
-  contents: string
+  tags: ArticleTags
+  contents: ArticleContents
 }>()
 
 // MarkdownをHTMLに変換

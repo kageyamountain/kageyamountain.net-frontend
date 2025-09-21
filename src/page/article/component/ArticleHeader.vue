@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type { ArticlePublishedAt, ArticleTitle, ArticleUpdatedAt } from "@/share/type"
+
 import { convertToLocalDate } from "@/share/util/index.ts"
 
 defineProps<{
-  title: string
-  publishedAt: string
-  updatedAt: string
+  title: ArticleTitle
+  publishedAt: ArticlePublishedAt
+  updatedAt: ArticleUpdatedAt
 }>()
 </script>
 
