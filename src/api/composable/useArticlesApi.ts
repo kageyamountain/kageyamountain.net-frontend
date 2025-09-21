@@ -5,14 +5,14 @@ import { ref } from "vue"
 import { apiClient } from "@/api/client.ts"
 import { API_RESPONSE_ERRORS } from "@/api/constant/error.ts"
 
-type ApiHeaders = paths["/articles"]["get"]["responses"]["200"]["headers"] | paths["/articles"]["get"]["responses"]["500"]["headers"]
+type ResponseHeader = paths["/articles"]["get"]["responses"]["200"]["headers"] | paths["/articles"]["get"]["responses"]["500"]["headers"]
 type Data = paths["/articles"]["get"]["responses"]["200"]["content"]["application/json"]
 type Error = paths["/articles"]["get"]["responses"]["500"]["content"]["application/json"]
 
 export function useArticlesApi() {
   const isLoading = ref(false)
   const status = ref<number>()
-  const headers = ref<ApiHeaders>()
+  const headers = ref<ResponseHeader>()
   const data = ref<Data>()
   const error = ref<Error>()
 
