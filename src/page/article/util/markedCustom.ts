@@ -1,5 +1,10 @@
-import highlightJS from "highlight.js"
+import GithubSlugger from "github-slugger"
+import HighlightJS from "highlight.js"
 import { marked } from "marked"
+
+// 見出し情報を格納する配列（目次生成用）
+let headings: Array<{ id: string; text: string; depth: number }> = []
+const slugger = new GithubSlugger()
 
 // markedデフォルトから拡張が必要な要素のカスタマイズ
 export function createCustomRenderer() {
@@ -7,13 +12,13 @@ export function createCustomRenderer() {
 
   // 見出し
   renderer.heading = (token) => {
-    const { text, depth: level } = token
-    const id = generateHeadingId()
+    const { text, depth } = token
+    const id = slugger.slug(text)
 
     // 見出し情報を保存（目次用）
-    headings.push({ id, text, level })
+    headings.push({ id, text, depth })
 
-    return `<h${level} id="${id}">${text}</h${level}>`
+    return `<h${depth} id="${id}">${text}</h${depth}>`
   }
 
   // コードブロック：シンタックスハイライト + ファイル名表示
@@ -33,16 +38,16 @@ export function createCustomRenderer() {
     }
 
     let highlightedCode = text
-    if (language && highlightJS.getLanguage(language)) {
+    if (language && HighlightJS.getLanguage(language)) {
       try {
-        highlightedCode = highlightJS.highlight(text, { language }).value
+        highlightedCode = HighlightJS.highlight(text, { language }).value
       } catch (err) {
         console.warn("シンタックスハイライトでエラー:", err)
-        highlightedCode = highlightJS.highlightAuto(text).value
+        highlightedCode = HighlightJS.highlightAuto(text).value
       }
     } else {
       try {
-        highlightedCode = highlightJS.highlightAuto(text).value
+        highlightedCode = HighlightJS.highlightAuto(text).value
       } catch (err) {
         console.warn("自動シンタックスハイライトでエラー:", err)
       }
@@ -66,15 +71,6 @@ export function createCustomRenderer() {
   return renderer
 }
 
-// 見出し情報を格納する配列（目次生成用）
-let headings: Array<{ id: string; text: string; level: number }> = []
-let headingCounter = 0
-
-// 見出しID生成
-function generateHeadingId(): string {
-  return `heading-${++headingCounter}`
-}
-
 // 見出し情報を取得する
 export function getHeadings() {
   return headings
@@ -83,5 +79,4 @@ export function getHeadings() {
 // 見出し情報をリセットする
 export function resetHeadings() {
   headings = []
-  headingCounter = 0
 }
