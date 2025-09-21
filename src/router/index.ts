@@ -30,7 +30,6 @@ const router = createRouter({
     {
       path: "/:pathMatch(.*)*",
       name: "not-found",
-      // meta: { title: "エラー | kageyamountain.net" },
       redirect: () => ({
         name: "error",
         query: { error_code: "not_found" },
