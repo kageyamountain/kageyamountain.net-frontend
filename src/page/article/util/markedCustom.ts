@@ -42,14 +42,14 @@ export function createCustomRenderer() {
       try {
         highlightedCode = hljs.highlight(text, { language }).value
       } catch (err) {
-        console.warn("シンタックスハイライトでエラー:", err)
+        console.warn("failed to syntax highlight:", err)
         highlightedCode = hljs.highlightAuto(text).value
       }
     } else {
       try {
         highlightedCode = hljs.highlightAuto(text).value
       } catch (err) {
-        console.warn("自動シンタックスハイライトでエラー:", err)
+        console.warn("failed to auto syntax highlight:", err)
       }
     }
 
