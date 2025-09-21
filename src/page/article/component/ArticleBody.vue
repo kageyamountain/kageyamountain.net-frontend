@@ -6,7 +6,7 @@ import { computed } from "vue"
 import DOMPurify from "dompurify"
 import { marked } from "marked"
 
-import { createCustomRenderer, resetHeadings } from "@/page/article/util/markedCustom.ts"
+import { createCustomRenderer } from "@/page/article/util/markedCustom.ts"
 import { getTagColor } from "@/share/util/index.ts"
 
 const props = defineProps<{
@@ -14,19 +14,17 @@ const props = defineProps<{
   contents: string
 }>()
 
-// Markdown変換ライブラリの設定
-marked.setOptions({
-  renderer: createCustomRenderer(), // カスタムレンダラーを利用してmarkedデフォルトから拡張が必要な要素のカスタマイズ
-  gfm: true, // GitHub Flavored Markdown
-  breaks: false,
-})
-
 // MarkdownをHTMLに変換
 // スタイルは `src/tailwind.css` で設定
 const displayContents = computed(() => {
-  resetHeadings()
   if (!props.contents) return ""
-  return DOMPurify.sanitize(marked(props.contents) as string)
+  return DOMPurify.sanitize(
+    marked(props.contents, {
+      renderer: createCustomRenderer(), // カスタムレンダラーを利用してmarkedデフォルトから拡張が必要な要素のカスタマイズ
+      gfm: true, // GitHub Flavored Markdown
+      breaks: false,
+    }) as string,
+  )
 })
 </script>
 

@@ -1,4 +1,4 @@
-import { slug } from "github-slugger"
+import GithubSlugger from "github-slugger"
 import hljs from "highlight.js"
 import { marked } from "marked"
 
@@ -8,11 +8,14 @@ let headings: Array<{ id: string; text: string; depth: number }> = []
 // markedデフォルトから拡張が必要な要素のカスタマイズ
 export function createCustomRenderer() {
   const renderer = new marked.Renderer()
+  const slugger = new GithubSlugger()
+
+  resetHeadings()
 
   // 見出し
   renderer.heading = (token) => {
     const { text, depth } = token
-    const id = slug(text)
+    const id = slugger.slug(text)
 
     // 見出し情報を保存（目次用）
     headings.push({ id, text, depth })
@@ -41,14 +44,14 @@ export function createCustomRenderer() {
       try {
         highlightedCode = hljs.highlight(text, { language }).value
       } catch (err) {
-        console.warn("シンタックスハイライトでエラー:", err)
+        console.warn("failed to syntax highlight:", err)
         highlightedCode = hljs.highlightAuto(text).value
       }
     } else {
       try {
         highlightedCode = hljs.highlightAuto(text).value
       } catch (err) {
-        console.warn("自動シンタックスハイライトでエラー:", err)
+        console.warn("failed to auto syntax highlight:", err)
       }
     }
 
