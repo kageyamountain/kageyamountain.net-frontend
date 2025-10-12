@@ -2,7 +2,7 @@
 import { onMounted } from "vue"
 
 import { useArticlesApi } from "@/api/composable/useArticlesApi.ts"
-import router from "@/router"
+import router from "@/router/index.ts"
 import ArticleCard from "@/share/component/ArticleCard.vue"
 
 const { isLoading, data, error, getArticlesApi } = useArticlesApi()

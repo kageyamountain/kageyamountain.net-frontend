@@ -16,6 +16,12 @@ const router = createRouter({
       meta: { title: "記事一覧 | kageyamountain.net" },
     },
     {
+      path: "/search",
+      name: "article-list-search",
+      component: () => import("../page/article-list-search/ArticleListSearch.vue"),
+      meta: { title: "記事検索 | kageyamountain.net" },
+    },
+    {
       path: "/articles/:article_id",
       name: "article",
       component: () => import("../page/article/Article.vue"),
