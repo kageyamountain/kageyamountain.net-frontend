@@ -4,5 +4,5 @@ import UserProfile from "@/share/component/UserProfile.vue"
 
 <template>
   <UserProfile />
-  <h1 class="text-center text-9xl">準備中</h1>
+  <h1 class="mt-7 text-center text-6xl">準備中</h1>
 </template>
