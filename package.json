@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "22.13.1"
+    "node": "22.20.0"
   },
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,7 @@
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "format": "prettier --write src/",
-    "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/api.yaml -o src/api/openapi-generate/api.ts"
+    "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/v1/api.yaml -o src/api/openapi-generate/api.ts"
   },
   "dependencies": {
     "dompurify": "^3.2.7",
