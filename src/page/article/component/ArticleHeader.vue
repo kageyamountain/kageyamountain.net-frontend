@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArticlePublishedAt, ArticleTitle, ArticleUpdatedAt } from "@/share/type"
+import type { ArticlePublishedAt, ArticleTitle, ArticleUpdatedAt } from "@/share/type/index.ts"
 
 import { convertToLocalDate } from "@/share/util/index.ts"
 

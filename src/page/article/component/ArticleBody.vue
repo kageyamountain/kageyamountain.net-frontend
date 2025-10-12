@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import "highlight.js/styles/github-dark.css"
 
-import type { ArticleContents, ArticleTags } from "@/share/type"
+import type { ArticleContents, ArticleTags } from "@/share/type/index.ts"
 
 import { computed } from "vue"
 

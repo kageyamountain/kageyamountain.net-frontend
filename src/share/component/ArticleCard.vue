@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArticleSummary } from "@/share/type"
+import type { ArticleSummary } from "@/share/type/index.ts"
 
 import { convertToLocalDate, getTagColor } from "@/share/util/index.ts"
 
