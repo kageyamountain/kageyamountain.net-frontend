@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { ArticleSummary } from "@/share/type/index.ts"
+import type { ArticleSummary } from "@/share/type"
 
-import { convertToLocalDate, getTagColor } from "@/share/util/index.ts"
+import { convertToLocalDate, getTagColor } from "@/share/util"
 
 defineProps<{ article: ArticleSummary }>()
 </script>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ArticleCards from "@/page/article-list/component/ArticleCards.vue"
-import UserProfile from "@/page/article-list/component/UserProfile.vue"
+import ArticleCards from "@/share/component/ArticleCards.vue"
+import UserProfile from "@/share/component/UserProfile.vue"
 </script>
 
 <template>
