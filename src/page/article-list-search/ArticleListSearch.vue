@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import ArticleCards from "@/share/component/ArticleCards.vue"
 import UserProfile from "@/share/component/UserProfile.vue"
 </script>
 
 <template>
   <UserProfile />
-  <ArticleCards />
+  <h1 class="mt-7 text-center text-6xl">準備中</h1>
 </template>

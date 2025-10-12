@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArticleID } from "@/share/type"
+import type { ArticleID } from "@/share/type/index.ts"
 
 import { onMounted } from "vue"
 
