@@ -26,10 +26,10 @@
     "openapi-fetch": "^0.15.0",
     "tailwind-merge": "^3.3.1",
     "vue": "^3.5.22",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.14",
+    "@tailwindcss/vite": "^4.1.16",
     "@tsconfig/node22": "^22.0.2",
     "@types/jsdom": "^27.0.0",
     "@types/node": "^24.8.1",
@@ -39,20 +39,20 @@
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
-    "eslint": "^9.37.0",
+    "eslint": "^9.38.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-vue": "^10.5.0",
     "jiti": "^2.4.2",
-    "jsdom": "^27.0.0",
+    "jsdom": "^27.0.1",
     "npm-run-all2": "^8.0.4",
     "openapi-typescript": "^7.10.1",
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.0",
     "tailwindcss": "^4.1.14",
     "typescript": "~5.9.3",
-    "vite": "^7.1.10",
+    "vite": "^7.1.12",
     "vite-plugin-vue-devtools": "^8.0.2",
-    "vitest": "^3.2.4",
+    "vitest": "^4.0.2",
     "vue-tsc": "^3.1.1"
   }
 }
