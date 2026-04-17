@@ -19,20 +19,20 @@
     "oapi-gen": "openapi-typescript ../kageyamountain.net-backend/internal/presentation/openapi/v1/api.yaml -o src/api/openapi-generate/api.ts"
   },
   "dependencies": {
-    "dompurify": "^3.3.3",
+    "dompurify": "^3.4.0",
     "github-slugger": "^2.0.0",
     "highlight.js": "^11.11.1",
     "marked": "^18.0.0",
     "openapi-fetch": "^0.15.0",
     "tailwind-merge": "^3.3.1",
-    "vue": "^3.5.22",
+    "vue": "^3.5.32",
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.16",
     "@tsconfig/node22": "^22.0.2",
     "@types/jsdom": "^27.0.0",
-    "@types/node": "^24.9.2",
+    "@types/node": "^25.6.0",
     "@vitejs/plugin-vue": "^6.0.5",
     "@vitest/eslint-plugin": "^1.4.0",
     "@vue/eslint-config-prettier": "^10.2.0",
@@ -43,7 +43,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-vue": "^10.8.0",
     "jiti": "^2.4.2",
-    "jsdom": "^27.1.0",
+    "jsdom": "^29.0.2",
     "npm-run-all2": "^8.0.4",
     "openapi-typescript": "^7.10.1",
     "prettier": "3.6.2",
