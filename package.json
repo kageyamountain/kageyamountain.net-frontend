@@ -22,7 +22,7 @@
     "dompurify": "^3.4.0",
     "github-slugger": "^2.0.0",
     "highlight.js": "^11.11.1",
-    "marked": "^18.0.0",
+    "marked": "^18.0.2",
     "openapi-fetch": "^0.17.0",
     "tailwind-merge": "^3.3.1",
     "vue": "^3.5.32",
@@ -41,18 +41,18 @@
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.38.0",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-vue": "^10.8.0",
+    "eslint-plugin-vue": "^10.9.0",
     "jiti": "^2.4.2",
     "jsdom": "^29.0.2",
     "npm-run-all2": "^8.0.4",
     "openapi-typescript": "^7.13.0",
     "prettier": "3.8.3",
-    "prettier-plugin-tailwindcss": "^0.7.2",
+    "prettier-plugin-tailwindcss": "^0.7.3",
     "tailwindcss": "^4.2.2",
     "typescript": "~6.0.3",
     "vite": "^7.3.2",
     "vitest": "^4.1.4",
     "vite-plugin-vue-devtools": "^8.1.1",
-    "vue-tsc": "^3.1.2"
+    "vue-tsc": "^3.2.7"
   }
 }
