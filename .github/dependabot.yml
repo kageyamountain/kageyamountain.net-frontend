@@ -14,8 +14,39 @@ updates:
     allow:
       - dependency-type: "all"
     versioning-strategy: "increase"
-    reviewers:
-      - "kageyamountain"
+    groups:
+      vue:
+        patterns:
+          - "vue"
+          - "vue-router"
+          - "vue-tsc"
+          - "@vue/*"
+          - "@vitejs/plugin-vue"
+          - "vite-plugin-vue-*"
+          - "eslint-plugin-vue"
+      vite:
+        patterns:
+          - "vite"
+          - "vitest"
+          - "@vitest/*"
+      tailwindcss:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+          - "prettier-plugin-tailwindcss"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-plugin-*"
+          - "@eslint/*"
+      types:
+        patterns:
+          - "@types/*"
+          - "@tsconfig/*"
+      openapi:
+        patterns:
+          - "openapi-fetch"
+          - "openapi-typescript"
     assignees:
       - "kageyamountain"
     labels:
@@ -32,8 +63,6 @@ updates:
     open-pull-requests-limit: 20
     cooldown:
       default-days: 7
-    reviewers:
-      - "kageyamountain"
     assignees:
       - "kageyamountain"
     labels:
